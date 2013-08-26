@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import sys
 import pika
 import json
 import msgpackrpc
@@ -37,7 +38,7 @@ def update_jubatus(id_, datum_):
         nn.get_client().close()
 
 connection = pika.BlockingConnection(pika.ConnectionParameters(
-   host='localhost', credentials = pika.PlainCredentials('jubatus','jubatus')))
+   host=sys.argv[1], credentials = pika.PlainCredentials('jubatus','jubatus')))
 channel = connection.channel()
 channel.queue_declare(queue='sensor')
 
