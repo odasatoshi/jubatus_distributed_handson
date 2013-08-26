@@ -37,7 +37,7 @@ def update_jubatus(id_, datum_):
         nn.get_client().close()
 
 connection = pika.BlockingConnection(pika.ConnectionParameters(
-   host='localhost', credentials = pika.PlainCredentials('admin','admin')))
+   host='localhost', credentials = pika.PlainCredentials('jubatus','jubatus')))
 channel = connection.channel()
 channel.queue_declare(queue='sensor')
 

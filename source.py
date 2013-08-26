@@ -21,7 +21,7 @@ if __name__ == "__main__":
     logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.CRITICAL)
 
     connection = pika.BlockingConnection(pika.ConnectionParameters(
-        host='localhost', credentials = pika.PlainCredentials('admin','admin')))
+        host='localhost', credentials = pika.PlainCredentials('jubatus','jubatus')))
     channel = connection.channel()
     channel.queue_declare(queue='sensor')
 
