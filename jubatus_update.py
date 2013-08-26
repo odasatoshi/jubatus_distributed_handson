@@ -49,6 +49,7 @@ def callback(ch, method, properties, body):
            ["z", val_["z"]]
          ])
     update_jubatus(id_, datum)
+    print datum
 
 channel.basic_consume(callback, queue='sensor', no_ack=True)
 channel.start_consuming()

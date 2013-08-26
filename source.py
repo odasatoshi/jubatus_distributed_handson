@@ -31,7 +31,7 @@ if __name__ == "__main__":
         channel.basic_publish(exchange='',
                       routing_key='sensor',
                       body= json.dumps((cnt, da)))
-        print cnt, da["gp"]
+        print cnt, da
         time.sleep( 1.0 / args.speed)
     connection.close()
 
