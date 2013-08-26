@@ -25,7 +25,7 @@ if __name__ == "__main__":
     channel = connection.channel()
     channel.queue_declare(queue='sensor')
 
-    random.seed(0)
+    random.seed(args.seed)
     for cnt in xrange(args.count):
         da = getData(0.1)
         channel.basic_publish(exchange='',
