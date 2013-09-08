@@ -16,6 +16,7 @@ if __name__ == "__main__":
     parser.add_argument('--speed', '-P', type=int, default = 1)
     parser.add_argument('--count', '-N', type=int, default = 100)
     parser.add_argument('--seed', '-S', default = 0)
+    parser.add_argument('--silent', action='store_true')
     args = parser.parse_args()
 
     logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.CRITICAL)
@@ -31,7 +32,8 @@ if __name__ == "__main__":
         channel.basic_publish(exchange='',
                       routing_key='sensor',
                       body= json.dumps((cnt, da)))
-        print cnt, da
-        time.sleep( 1.0 / args.speed)
+        if not args.silent :
+            print cnt, da
+            time.sleep( 1.0 / args.speed)
     connection.close()
 
